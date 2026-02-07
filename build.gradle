@@ -1,10 +1,13 @@
-// Top-level build file
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
     dependencies {
-        // Essential tools for your VectorVision engine [cite: 2026-02-07]
         classpath 'com.android.tools.build:gradle:8.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"
     }
 }
 
-// Repositories are now handled by settings.gradle [cite: 2026-02-07]
+// No allprojects {} block here to avoid settings.gradle conflicts [cite: 2026-02-07]
