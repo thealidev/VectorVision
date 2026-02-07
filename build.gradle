@@ -1,18 +1,16 @@
-// Top-level build file
 buildscript {
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"
+        // Upgraded versions to support Gradle 9+ [cite: 2026-02-07]
+        classpath 'com.android.tools.build:gradle:8.4.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20"
     }
 }
 
-// This allows the app/build.gradle to use the plugins properly [cite: 2026-02-07]
 plugins {
-    id 'com.android.application' version '8.2.0' apply false
-    id 'com.android.library' version '8.2.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.9.0' apply false
+    id 'com.android.application' version '8.4.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.20' apply false
 }
