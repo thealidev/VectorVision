@@ -1,39 +1,26 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+// Top-level build file
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // This tells Gradle which version of the Android tools to use
+        classpath 'com.android.tools.build:gradle:8.2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"
+    }
 }
 
-android {
-    namespace 'com.vectorvision.svgv'
-    compileSdk 34
-
-    defaultConfig {
-        applicationId "com.vectorvision.svgv"
-        minSdk 24
-        targetSdk 34
-        versionCode 1
-        versionName "1.0-Alpha"
-
-        externalNativeBuild {
-            cmake {
-                cppFlags "-std=c++17"
-            }
-        }
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
     }
+}
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    
-    buildFeatures {
-        compose true
-    }
-    
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.5.1'
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
     }
 
     externalNativeBuild {
