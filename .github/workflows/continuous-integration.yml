@@ -21,12 +21,8 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # Using global gradle to avoid 'gradlew' missing error
-      - name: Build Debug APK
-        run: gradle assembleDebug
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-      - name: Upload Debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: VectorVision-Dev-Build
-          path: app/build/outputs/apk/debug/app-debug.apk
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
