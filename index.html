@@ -5,35 +5,231 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VectorVision | The New Geometric Media Standard</title>
     <style>
-        /* Modern System-Aware Styling */
+        /* Premium Dark Theme Core [cite: 2026-02-07] */
         :root {
-            color-scheme: dark;
             --primary: #00ffcc;
+            --primary-glow: rgba(0, 255, 204, 0.3);
             --whatsapp: #25D366;
-            --bg: #0a0a0a;
-            --text: #e0e0e0;
-            --card: #161616;
-            --border: #333;
+            --bg: #050505;
+            --card-bg: #111111;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --border: #222222;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
         }
 
-        .container {
+        .app-container {
             width: 100%;
-            max-width: 480px; /* Locked width for mobile perfection */
-            padding: 20px;
+            max-width: 450px; /* Perfect Mobile Viewport [cite: 2026-02-07] */
+            padding: 24px;
             box-sizing: border-box;
         }
 
-        /* Top Navigation */
+        /* Premium Navigation [cite: 2026-02-07] */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0 30px 0;
+        }
+
+        /* Custom Vector Logo [cite: 2026-02-07] */
+        .vv-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            position: relative;
+            transform: rotate(45deg);
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            top: 5px;
+            left: 5px;
+        }
+
+        /* WhatsApp with Pre-filled Message [cite: 2026-02-07] */
+        .wa-contact {
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+        }
+
+        /* Premium Header [cite: 2026-02-07] */
+        header {
+            text-align: left;
+            padding: 40px 0;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            line-height: 1;
+            margin: 0;
+            background: linear-gradient(to bottom right, #fff, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* Feature Cards [cite: 2026-02-07] */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: border 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card h2 {
+            margin: 0 0 12px 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-badge {
+            background: rgba(255,255,255,0.05);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            border: 1px solid rgba(0, 255, 204, 0.1);
+        }
+
+        /* GitHub Action Button [cite: 2026-02-07] */
+        .gh-button {
+            display: block;
+            text-align: center;
+            background: #ffffff;
+            color: #000000;
+            padding: 18px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: 30px;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: #444;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <nav>
+            <div class="vv-logo">
+                <div class="logo-icon"></div>
+                VectorVision
+            </div>
+            <a href="https://wa.me/923440708494?text=Hi%20Ali,%20I%20just%20saw%20your%20VectorVision%20website!" class="wa-contact">
+                Contact
+            </a>
+        </nav>
+
+        <header>
+            <h1 class="hero-title">Beyond Pixels.</h1>
+            <div class="hero-sub">The Geometric Era</div>
+        </header>
+
+        <div class="card">
+            <p>Replacing legacy raster "trash" with pure mathematical paths. Infinite resolution. <span style="color:white;">85% Data Compression.</span> [cite: 2026-02-07]</p>
+        </div>
+
+        <div class="card">
+            <h2><div class="dot"></div>.svgc</h2>
+            <p>Scalable Vector Geometric Camera. Replacing JPG/PNG with coordinate-based fidelity. [cite: 2026-02-07]</p>
+            <div class="stats">
+                <span class="stat-badge">Infinite Zoom</span>
+                <span class="stat-badge">Anti-Trash</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><div class="dot"></div>.svgv</h2>
+            <p>Scalable Vector Global Video. Replacing MP4 with geometric motion streams. [cite: 2026-02-07]</p>
+            <div class="stats">
+                <span class="stat-badge">Low Latency</span>
+                <span class="stat-badge">2G Optimized</span>
+            </div>
+        </div>
+
+        <a href="https://github.com/thealidev/VectorVision" class="gh-button">Explore Repository</a>
+
+        <footer>
+            Architected by Muhammad Ali<br>
+            Rawalpindi, Pakistan • Feb 2026 [cite: 2025-11-12, 2026-02-07]
+        </footer>
+    </div>
+</body>
+</html>
         nav {
             display: flex;
             justify-content: space-between;
