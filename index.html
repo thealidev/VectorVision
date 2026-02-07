@@ -11,6 +11,7 @@
             --primary: #00ffcc;
             --secondary: #7000ff;
             --card-bg: #16161a;
+            --whatsapp: #25d366;
         }
 
         body {
@@ -104,29 +105,52 @@
             font-family: 'Courier New', Courier, monospace;
         }
 
-        /* Footer / Action */
-        footer {
-            padding: 50px 20px;
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
             text-align: center;
-            border-top: 1px solid #222;
+            background: linear-gradient(to bottom, var(--bg), #111);
         }
 
-        .btn {
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 35px;
+            background-color: var(--whatsapp);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-main {
             display: inline-block;
+            margin-bottom: 20px;
             padding: 15px 40px;
             background: linear-gradient(45deg, var(--secondary), #4b0082);
             color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
-            transition: opacity 0.3s;
         }
 
-        .btn:hover {
-            opacity: 0.8;
+        /* Footer */
+        footer {
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #555;
         }
 
-        /* Simple Animation */
         #vectorCanvas {
             position: absolute;
             top: 0;
@@ -143,15 +167,15 @@
     <header>
         <div class="badge">Research Phase: SVGV v1.0</div>
         <h1>VectorVision</h1>
-        <p class="subtitle">Replacing the world’s aging pixel grids with mathematical paths. Real-time geometric video for the next generation of hardware.</p>
-        <a href="https://github.com/thealidev/VectorVision-SVGV" class="btn">View Research on GitHub</a>
+        <p class="subtitle">Replacing the world’s aging pixel grids with mathematical paths. Inspired by Industrial CNC Toolpathing for high-fidelity mobile video.</p>
+        <a href="https://github.com/thealidev/VectorVision-SVGV" class="btn-main">View Research on GitHub</a>
     </header>
 
     <div class="container">
         <div class="grid">
             <div class="card">
                 <h3>85% Compression</h3>
-                <p>By moving from raster to geometry, SVGV reduces a 1.5GB 1080p stream to under 300MB without losing human-fidelity detail.</p>
+                <p>By moving from raster to geometry, SVGV reduces file sizes drastically without losing human-fidelity detail. Ideal for bandwidth-limited regions.</p>
             </div>
             <div class="card">
                 <h3>Anti-Trash Lock</h3>
@@ -159,7 +183,7 @@
             </div>
             <div class="card">
                 <h3>Infinite Resolution</h3>
-                <p>Zoom 100x into any frame. Since the data is mathematical paths (Bézier), there are no pixels to blur. Pure clarity at any scale.</p>
+                <p>Zoom 100x into any frame. Since the data is based on Bézier paths, there are no pixels to blur. Pure clarity at any scale.</p>
             </div>
         </div>
     </div>
@@ -167,16 +191,23 @@
     <section class="specs">
         <h2>Technical Foundation</h2>
         <p>Built for <code>C++ / NDK</code> | <code>Vulkan API</code> | <code>FP16 GPU Math</code></p>
-        <p style="color: #666;">Inspired by Industrial CNC Toolpathing and Saliency-Aware Geometry.</p>
+        <p style="color: #666;">A democratization of visual data for the next generation of mobile hardware.</p>
+    </section>
+
+    <section class="contact-section">
+        <h2>Interested in Collaborating?</h2>
+        <p style="margin-bottom: 30px; color: #aaa;">I am looking for C++/NDK experts to help build the first functional engine.</p>
+        <a href="https://wa.me/923440708494?text=Hi%20Ali,%20I%20saw%20VectorVision%20and%20I'm%20interested%20in%20the%20tech." class="whatsapp-btn">
+            Chat on WhatsApp
+        </a>
     </section>
 
     <footer>
-        <p>Created by <strong>Muhammad Ali</strong> | Independent Researcher</p>
-        <p style="font-size: 0.8rem; color: #444;">&copy; 2026 Project VectorVision. All Rights Reserved.</p>
+        <p>Created by <strong>Muhammad Ali</strong> | Independent Researcher | Rawalpindi, Pakistan</p>
+        <p style="font-size: 0.8rem;">&copy; 2026 Project VectorVision. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Simple background animation to simulate "vector paths"
         const canvas = document.getElementById('vectorCanvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -194,8 +225,8 @@
             lines.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 2,
-                vy: (Math.random() - 0.5) * 2
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: (Math.random() - 0.5) * 1.5
             });
         }
 
