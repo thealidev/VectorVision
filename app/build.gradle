@@ -1,3 +1,4 @@
+// Plugins must be declared at the very top to prevent the "android()" method error.
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -18,9 +19,21 @@ android {
         
         externalNativeBuild {
             cmake {
+                // O3 optimization is critical for real-time geometric vectorization.
                 cppFlags "-std=c++17 -O3"
                 arguments "-DANDROID_STL=c++_shared"
             }
+        }
+    }
+
+    // This block forces all conflicting libraries to use version 2.6.1.
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.lifecycle:lifecycle-runtime:2.6.1'
+            force 'androidx.lifecycle:lifecycle-common:2.6.1'
+            force 'androidx.lifecycle:lifecycle-viewmodel:2.6.1'
+            force 'androidx.lifecycle:lifecycle-livedata:2.6.1'
+            force 'androidx.lifecycle:lifecycle-livedata-core:2.6.1'
         }
     }
 
@@ -53,7 +66,7 @@ android {
 }
 
 dependencies {
-    // Synchronized CameraX versions to prevent classpath conflicts [cite: 2026-02-07]
+    // Synchronized CameraX versions to ensure binary compatibility.
     def camerax_version = "1.3.1"
     implementation "androidx.camera:camera-core:${camerax_version}"
     implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -61,7 +74,7 @@ dependencies {
     implementation "androidx.camera:camera-video:${camerax_version}"
     implementation "androidx.camera:camera-view:${camerax_version}"
     
-    // Premium Material 3 UI [cite: 2026-02-07]
+    // Premium UI & Layout Components.
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
