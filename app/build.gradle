@@ -1,92 +1,28 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
-
 android {
-    namespace 'com.vectorvision.svgv'
+    namespace 'com.vectorvision'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.vectorvision.svgv"
-        minSdk 24
+        applicationId "com.vectorvision"
+        minSdk 26
         targetSdk 34
         versionCode 1
-        versionName "1.0-Alpha"
+        versionName "1.0-ULTIMATE"
 
         externalNativeBuild {
             cmake {
-                cppFlags "-std=c++17"
+                cppFlags "-std=c++17 -O3" // Optimization level 3 for speed [cite: 2026-02-07]
             }
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = '17'
-    }
-
     buildFeatures {
-        compose true
-    }
-
-    composeOptions {
-        // Syncing Compose with Kotlin 1.9.20 [cite: 2026-02-07]
-        kotlinCompilerExtensionVersion '1.5.4' 
-    }
-
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
-        }
+        viewBinding true
     }
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
-    implementation 'androidx.activity:activity-compose:1.8.2'
-    implementation platform('androidx.compose:compose-bom:2024.01.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.material3:material3'
-}
-
-    kotlinOptions {
-        jvmTarget = '17'
-    }
-
-    buildFeatures {
-        compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.5.1'
-    }
-
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
-        }
-    }
-}
-
-dependencies {
-    implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
-    implementation 'androidx.activity:activity-compose:1.8.2'
-    implementation platform('androidx.compose:compose-bom:2023.08.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.material3:material3'
-}
-dependencies {
-    implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
-    implementation 'androidx.activity:activity-compose:1.8.2'
-    implementation platform('androidx.compose:compose-bom:2023.08.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.camera:camera-view:1.3.1'
+    implementation 'androidx.camera:camera-lifecycle:1.3.1'
+    implementation 'com.google.android.material:material:1.11.0'
 }
